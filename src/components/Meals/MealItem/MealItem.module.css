@@ -1,0 +1,66 @@
+.meal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 300px;
+}
+.meal h3 {
+  font-family: "Acme", sans-serif;
+  font-size: 2.4rem;
+  letter-spacing: 0.1rem;
+  margin-bottom: var(--space-400);
+}
+.meal .topContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+
+  position: relative;
+  transition: 0.5s ease-in-out;
+}
+.meal:hover .topContent {
+  transform: translateY(-90px);
+}
+.meal:hover .topContent .image {
+  transform: scale(1.1);
+}
+.image {
+  width: 17rem;
+  height: 17rem;
+
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 0 30px;
+  transition: 0.5s ease-in-out;
+  box-shadow: 0 5px 10px rgba(20, 22, 29, 0.308);
+}
+.bottomContent {
+   position: absolute;
+  bottom: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: 0.5s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+}
+.meal:hover .bottomContent {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-35px);
+}
+.price {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: var(--pink);
+  font-size: 2.4rem;
+}
+.description {
+  font-style: italic;
+  font-size: 2rem;
+  line-height: 1.9rem;
+}
