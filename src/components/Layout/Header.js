@@ -12,7 +12,7 @@ const Header = (props) => {
         <h1 className={classes.title}>
           MIYA<sup>&copy;</sup>
         </h1>
-        <HeaderCartButton/>
+        <HeaderCartButton onClick={props.onShowCart}/>
       </header>
       <section className={classes.heading}>
         <div className={classes.heading__text}>
