@@ -1,0 +1,32 @@
+.button {
+  cursor: pointer;
+  border: none;
+  background-color: var(--pink);
+  color: var(--white);
+  padding: 0.5rem var(--space-300);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 25px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-left:solid var(--black) 0.5px;
+  border-right:solid var(--black) 3px;
+  border-top:solid var(--black) 0.5px;
+  border-bottom:solid var(--black) 3px;
+}
+.button:hover,
+.button:active {
+  background-color: var(--pink-200);
+}
+.icon {
+  width: 2rem;
+  height: 2rem;
+  margin-right: var(--space-100);
+}
+.badge {
+  padding: 0.25rem 1rem;
+  border-radius: 25px;
+  margin-left: var(--space-100);
+   background-color: var(--black);
+}

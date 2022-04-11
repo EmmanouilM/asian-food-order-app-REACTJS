@@ -3,6 +3,7 @@ import classes from "./Header.module.css";
 import Sushi from "../../assets/sushi.svg";
 import Shrimps from "../../assets/shrimps.svg";
 import Wok from "../../assets/wok.svg";
+import HeaderCartButton from './HeaderCartButton';
 
 const Header = (props) => {
   return (
@@ -11,7 +12,7 @@ const Header = (props) => {
         <h1 className={classes.title}>
           MIYA<sup>&copy;</sup>
         </h1>
-        <button>My Cart</button>
+        <HeaderCartButton/>
       </header>
       <section className={classes.heading}>
         <div className={classes.heading__text}>
