@@ -1,15 +1,84 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Lato:wght@300;400;700;900&display=swap');
+:root {
+    /* color variables  */
+    --black:#17181b;
+  --blue-100: #a2d8e5;
+  --gold: #ffc533;
+  --pink: #ff5a6e;
+  --pink-200: #dd374b;
+  --white:#ffffff;
 
+  /* gap variables  */
+  --space-50:0.5rem;
+  --space-100:1rem;
+  --space-200:2rem;
+  --space-300:3rem;
+  --space-400:4rem;
+  --space-500:5rem;
+}
 * {
-  box-sizing: border-box;
+    outline: none;
+    border: none;
+  }
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
-
-html {
-  font-family: 'Noto Sans JP', sans-serif;
-}
-
-body {
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure {
   margin: 0;
-  background-color: #3f3f3f;
+}
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* Set core root defaults */
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+  }
+html:focus-within {
+  scroll-behavior: smooth;
+}
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  font-family: 'Lato', sans-serif;
+  line-height: 1.5;
+  letter-spacing: normal;
+   background-color:var(--blue-100);
+  color: var(--black);
+}
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
