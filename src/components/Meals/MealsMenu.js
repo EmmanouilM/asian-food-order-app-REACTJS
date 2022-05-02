@@ -57,12 +57,17 @@ import Chopsticks from "../../assets/chopsticks.svg";
 const MealsMenu = () => {
   const [meals, setMeals] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [httpError, setHttpError] = useState();
 
   useEffect(() => {
     const fetchMeals = async () => {
       const response = await fetch(
         "https://asian-order-food-http-default-rtdb.firebaseio.com/meals.json"
       );
+
+      if (!response.ok) {
+        throw new Error('Something went wrong!');
+      }
       const responseData = await response.json();
 
       const fetchedMeals = [];
@@ -78,9 +83,12 @@ const MealsMenu = () => {
       setMeals(fetchedMeals);
       setIsLoading(false);
     };
-    fetchMeals();
+    fetchMeals().catch((error) => {
+      setIsLoading(false);
+      setHttpError(error.message);
+    });
   }, []);
-
+  
   if (isLoading) {
     return (
       <section className={classes.mealsLoading}>
@@ -89,6 +97,13 @@ const MealsMenu = () => {
     );
   }
   
+  if (httpError) {
+    return (
+      <section className={classes.mealsError}>
+        <p>{httpError}</p>
+      </section>
+    );
+  }
   const mealsList = meals.map((meal) => (
     <MealItem
       key={meal.id}
