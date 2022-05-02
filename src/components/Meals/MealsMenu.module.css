@@ -39,3 +39,8 @@
     top: 10.3rem;
     z-index: -100;
   }
+
+.mealsLoading {
+  text-align:center;
+  color:white;
+}

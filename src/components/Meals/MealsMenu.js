@@ -56,6 +56,8 @@ import Chopsticks from "../../assets/chopsticks.svg";
 
 const MealsMenu = () => {
   const [meals, setMeals] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     const fetchMeals = async () => {
       const response = await fetch(
@@ -74,10 +76,19 @@ const MealsMenu = () => {
         });
       }
       setMeals(fetchedMeals);
+      setIsLoading(false);
     };
     fetchMeals();
   }, []);
 
+  if (isLoading) {
+    return (
+      <section className={classes.mealsLoading}>
+        <p>Loading...</p>
+      </section>
+    );
+  }
+  
   const mealsList = meals.map((meal) => (
     <MealItem
       key={meal.id}
