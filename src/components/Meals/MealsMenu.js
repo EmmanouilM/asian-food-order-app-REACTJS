@@ -1,8 +1,9 @@
-import MealItem from './MealItem/MealItem';
-import classes from './MealsMenu.module.css';
+import { useEffect, useState } from "react";
+import MealItem from "./MealItem/MealItem";
+import classes from "./MealsMenu.module.css";
 import Chopsticks from "../../assets/chopsticks.svg";
 
-const MEALS = [
+/* const MEALS = [
   {
     id: "m1",
     name: "Sushi",
@@ -51,10 +52,33 @@ const MEALS = [
     image:
       "https://images.unsplash.com/photo-1580442151529-343f2f6e0e27?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
   },
-];
+]; */
 
 const MealsMenu = () => {
-  const mealsList = MEALS.map((meal) => (
+  const [meals, setMeals] = useState([]);
+  useEffect(() => {
+    const fetchMeals = async () => {
+      const response = await fetch(
+        "https://asian-order-food-http-default-rtdb.firebaseio.com/meals.json"
+      );
+      const responseData = await response.json();
+
+      const fetchedMeals = [];
+      for (const key in responseData) {
+        fetchedMeals.push({
+          id: key,
+          name: responseData[key].name,
+          description: responseData[key].description,
+          price: responseData[key].price,
+          image: responseData[key].image,
+        });
+      }
+      setMeals(fetchedMeals);
+    };
+    fetchMeals();
+  }, []);
+
+  const mealsList = meals.map((meal) => (
     <MealItem
       key={meal.id}
       id={meal.id}
